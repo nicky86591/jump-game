@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f4f6f8" />
-    <title>������Ծ</title>
+    <title>方块跳跃</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -12,25 +12,24 @@
       <header>
         <div>
           <p class="eyebrow">CANVAS MINI GAME</p>
-          <h1>������Ծ</h1>
+          <h1>方块跳跃</h1>
         </div>
-        <div class="scores" aria-label="����">
-          <span>�÷� <strong id="score">0</strong></span>
-          <span>��� <strong id="best">0</strong></span>
+        <div class="scores" aria-label="分数">
+          <span>得分 <strong id="score">0</strong></span>
+          <span>最高 <strong id="best">0</strong></span>
         </div>
       </header>
 
-      <section class="stage" aria-label="��Ϸ����">
+      <section class="stage" aria-label="游戏区域">
         <canvas id="game" width="900" height="560">
-          ����������֧�� Canvas���뻻�ý��µ��������
+          你的浏览器不支持 Canvas，请换用较新的浏览器。
         </canvas>
-        <div class="tip" id="tip">��ס��ꡢ��Ļ��ո��������ɿ�����</div>
-        <button id="restart" type="button" hidden>���¿�ʼ</button>
+        <div class="tip" id="tip">按住鼠标、屏幕或空格蓄力，松开起跳</div>
+        <button id="restart" type="button" hidden>重新开始</button>
       </section>
 
-      <p class="help">����Խ�ã�����ԽԶ���䵽��һ��ƽ̨�� 1 �֡�</p>
+      <p class="help">蓄力越久，跳得越远。落到下一个平台得 1 分。</p>
     </main>
     <script src="game.js"></script>
   </body>
 </html>
-
