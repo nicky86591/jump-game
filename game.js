@@ -160,6 +160,15 @@
       ctx.ellipse(x, 105 + (i % 2) * 50, 70, 20, 0, 0, Math.PI * 2);
       ctx.fill();
     }
+
+    ctx.save();
+    ctx.globalAlpha = 0.09;
+    ctx.fillStyle = "#2f80ed";
+    ctx.font = "700 88px system-ui, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("love me", W / 2, H / 2);
+    ctx.restore();
   }
 
   function draw() {
@@ -178,12 +187,43 @@
       ? Math.min((performance.now() - chargeStartedAt) / MAX_CHARGE_MS, 1)
       : 0;
 
-    ctx.fillStyle = state === "over" ? "#89939b" : "#f06449";
-    roundedRect(player.x, player.y + (34 - player.size), player.size, player.size, 8);
+    const faceX = player.x;
+    const faceY = player.y + (34 - player.size);
+    ctx.fillStyle = state === "over" ? "#89939b" : "#2f80ed";
+    roundedRect(faceX, faceY, player.size, player.size, 8);
 
+    const eyeRadius = Math.max(2.2, player.size * 0.09);
     ctx.fillStyle = "#fff";
-    ctx.fillRect(player.x + player.size * 0.22, player.y + (34 - player.size) + player.size * 0.3, 4, 4);
-    ctx.fillRect(player.x + player.size * 0.66, player.y + (34 - player.size) + player.size * 0.3, 4, 4);
+    ctx.beginPath();
+    ctx.arc(faceX + player.size * 0.31, faceY + player.size * 0.31, eyeRadius, 0, Math.PI * 2);
+    ctx.arc(faceX + player.size * 0.69, faceY + player.size * 0.31, eyeRadius, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = "#16324f";
+    ctx.beginPath();
+    ctx.arc(faceX + player.size * 0.31, faceY + player.size * 0.32, eyeRadius * 0.43, 0, Math.PI * 2);
+    ctx.arc(faceX + player.size * 0.69, faceY + player.size * 0.32, eyeRadius * 0.43, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(faceX + player.size * 0.5, faceY + player.size * 0.43);
+    ctx.lineTo(faceX + player.size * 0.44, faceY + player.size * 0.56);
+    ctx.lineTo(faceX + player.size * 0.54, faceY + player.size * 0.56);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.strokeStyle = "#fff";
+    ctx.lineWidth = Math.max(1.8, player.size * 0.065);
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.arc(
+      faceX + player.size * 0.5,
+      faceY + player.size * 0.57,
+      player.size * 0.22,
+      Math.PI * 0.12,
+      Math.PI * 0.88
+    );
+    ctx.stroke();
 
     if (state === "charging") {
       const barWidth = 74;
