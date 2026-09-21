@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f6f8" />
+    <title>������Ծ</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header>
+        <div>
+          <p class="eyebrow">CANVAS MINI GAME</p>
+          <h1>������Ծ</h1>
+        </div>
+        <div class="scores" aria-label="����">
+          <span>�÷� <strong id="score">0</strong></span>
+          <span>��� <strong id="best">0</strong></span>
+        </div>
+      </header>
+
+      <section class="stage" aria-label="��Ϸ����">
+        <canvas id="game" width="900" height="560">
+          ����������֧�� Canvas���뻻�ý��µ��������
+        </canvas>
+        <div class="tip" id="tip">��ס��ꡢ��Ļ��ո��������ɿ�����</div>
+        <button id="restart" type="button" hidden>���¿�ʼ</button>
+      </section>
+
+      <p class="help">����Խ�ã�����ԽԶ���䵽��һ��ƽ̨�� 1 �֡�</p>
+    </main>
+    <script src="game.js"></script>
+  </body>
+</html>
+
