@@ -62,7 +62,7 @@
     state = "ready";
     chargeStartedAt = 0;
     lastTime = performance.now();
-    tipEl.textContent = "��ס��ꡢ��Ļ��ո��������ɿ�����";
+    tipEl.textContent = "按住鼠标、屏幕或空格蓄力，松开起跳";
     restartBtn.hidden = true;
     ensurePlatforms();
   }
@@ -71,7 +71,7 @@
     if (state !== "ready") return;
     state = "charging";
     chargeStartedAt = performance.now();
-    tipEl.textContent = "�����С����ɿ�����";
+    tipEl.textContent = "蓄力中……松开起跳";
   }
 
   function releaseJump() {
@@ -93,7 +93,7 @@
       localStorage.setItem("block-jump-best", String(best));
       bestEl.textContent = best;
     }
-    tipEl.textContent = `��Ϸ���� �� ���� ${score} ��`;
+    tipEl.textContent = `游戏结束 · 本局 ${score} 分`;
     restartBtn.hidden = false;
   }
 
@@ -124,7 +124,7 @@
         player.vx = 0;
         player.vy = 0;
         state = "ready";
-        tipEl.textContent = "������ס����";
+        tipEl.textContent = "继续按住蓄力";
         if (landing.id !== currentPlatform) {
           currentPlatform = landing.id;
           score += 1;
@@ -203,7 +203,7 @@
       ctx.fillStyle = "#17212b";
       ctx.font = "700 38px system-ui, sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("ûվ��", W / 2, H * .43);
+      ctx.fillText("没站稳", W / 2, H * .43);
     }
   }
 
@@ -238,4 +238,3 @@
   resetGame();
   requestAnimationFrame(loop);
 })();
-
